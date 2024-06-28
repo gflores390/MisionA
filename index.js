@@ -21,7 +21,7 @@ noBtn.addEventListener('mouseover', function () {
     noBtn.style.setProperty('transform', `translate(-${randomX}%, -${randomY}%)`);
 });
 
-const textElements = ["<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3","<3"];
+
 const background = document.querySelector('.background');
 
 textElements.forEach(text => {
