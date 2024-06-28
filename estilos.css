@@ -1,28 +1,110 @@
-*{
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.contenedor{
-    background: cadetblue;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
-p{
-    font-size: xx-large;
-    padding: 15%;
-}
-
-button{
-    font-size: xx-large;
-    padding: 0.75em;
-}
-
-#yesBtn{
-    transform: translate(-100%,0);
-}
-
-#noBtn{
+.background {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(45deg, #83a4d4, #b6fbff);
+    animation: backgroundMove 10s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contenedor {
+    background: rgba(255, 255, 255, 0.0); /* Cambia a 0.0 para fondo transparente */
+    border-radius: 10px;
+    padding: 2em;
+    text-align: center;
+    position: relative;
+}
+
+p {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 0.75em 1.5em;
+    margin: 0.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#yesBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#yesBtn:hover {
+    background-color: #45a049;
+}
+
+#noBtn {
+    background-color: #f44336;
+    color: white;
+    position: fixed; /* Cambiado a fixed */
+}
+
+#noBtn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.swal2-popup {
+    background: rgba(34, 34, 34, 0.8); /* Fondo completamente transparente */
+    box-shadow: none; /* Sin sombra */
+}
+
+.swal2-title {
+    color: #fff; /* Color del título */
+}
+
+.swal2-confirm-btn {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    border-radius: 5px;
+    font-size: 1.5em;
+    padding: 0.75em 1.5em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.swal2-confirm-btn:hover {
+    background-color: #45a049 !important;
+    transform: scale(1.1);
 }

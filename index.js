@@ -4,56 +4,26 @@ const backgroundMusic = document.getElementById('backgroundMusic');
 
 yesBtn.addEventListener('click', function () {
     Swal.fire({
-        title: '¡Gracias Alan!',
-        text: '¡Sabía que ibas a decir que sí uwu!🤭🤭🤭',
+        title: '¡Gracias Alan 🤭!',
+        text: '¡Sabía que ibas a decir que sí Alan uwu 🤭🤭🤭!',
         icon: 'success',
-        confirmButtonText: '💖'
+        confirmButtonText: '💖',
+        customClass: {
+            confirmButton: 'swal2-confirm-btn',
+            popup: 'swal2-popup',
+            title: 'swal2-title'
+        }
+    }).then(() => {
+        toggleFullScreen();
+        playMusic();
     });
-    toggleFullScreen();
-    playMusic();
 });
 
 noBtn.addEventListener('mouseover', function () {
-    const randomX = parseInt(Math.random() * 90);
-    const randomY = parseInt(Math.random() * 90);
-    noBtn.style.setProperty('top', randomY + '%');
-    noBtn.style.setProperty('left', randomX + '%');
+    const randomX = Math.random() * 100;
+    const randomY = Math.random() * 100;
+    noBtn.style.setProperty('top', randomY + 'vh'); // Utilizamos vh para ocupar toda la altura de la ventana
+    noBtn.style.setProperty('left', randomX + 'vw'); // Utilizamos vw para ocupar toda la anchura de la ventana
     noBtn.style.setProperty('transform', `translate(-${randomX}%, -${randomY}%)`);
 });
 
-
-const background = document.querySelector('.background');
-
-textElements.forEach(text => {
-    const span = document.createElement('span');
-    span.className = 'floating';
-    span.innerText = text;
-    span.style.position = 'absolute';
-    span.style.color = 'rgba(255, 255, 255, 0.1)';
-    span.style.fontSize = '5em';
-    span.style.whiteSpace = 'nowrap';
-    span.style.top = `${Math.random() * 100}%`;
-    span.style.left = `${Math.random() * 100}%`;
-    span.style.transform = `translate(-${Math.random() * 100}%, -${Math.random() * 100}%)`;
-    background.appendChild(span);
-});
-
-function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-            console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-        });
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-function playMusic() {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play().catch(err => {
-            console.log(`Error playing audio: ${err.message} (${err.name})`);
-        });
-    } else {
-        backgroundMusic.pause();
-    }
-}
